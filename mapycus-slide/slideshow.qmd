@@ -1,0 +1,683 @@
+---
+title: "MAPYCUS MAXIMUS"
+author: "Thanh Cuong (Alex) Nguyen"
+date: "2025-10-10"
+subtitle: "When context meet detail"
+format:
+    revealjs:
+        theme: [default, custom.scss]
+        slide-number: true
+        code-overflow: wrap
+        transition: fade
+        toc: false
+        incremental: true
+        highlight-style: monokai
+        code-fold: true
+        code-summary: "Show code"
+        font-size: 28px  # Default is 40px, try 28-36px
+        css: styles/custom.css
+        code-block-height: "auto"
+        auto-animate: true
+        cache: true
+---
+
+```{r}
+#| eval: true
+#| echo: false
+#| include: false
+
+library(tidyverse)
+library(mapycusmaximus)
+library(sf)
+library(ggthemes)
+
+hosp_add <- read_csv("data/hospital_address.csv")
+racf_add <- read_csv("data/RACF_address.csv")
+
+library(dplyr)
+
+conn_named <- conn_fish |>
+  # Join with RACF info (source)
+  left_join(
+    racf_add |>
+      select(racf_name = formal_name, lat_racf = latitude, long_racf = longitude),
+    by = c("lat_racf", "long_racf")
+  ) |>
+  # Join with hospital info (destination)
+  left_join(
+    hosp_add |>
+      select(hosp_name = formal_name, lat_hosp = latitude, long_hosp = longitude),
+    by = c("lat_hosp", "long_hosp")
+  ) |>
+  # Optional: reorder columns for readability
+  select(racf_name, hosp_name, weight, everything())
+
+# View the first few results
+conn_named |> select(racf_name, hosp_name, weight) |> head()
+
+
+```
+
+##  **MAPYCUS MAXIMUS**
+
+### A Focus–Glue–Context Framework for Geospatial Fisheye Transformations
+
+**Alex Nguyen**
+
+Master of Business Analytics, Monash University
+
+[GitHub: Alex-Nguyen-VN](https://github.com/Alex-Nguyen-VN)
+
+> _"A cartographic lens to see both detail and context — at once."_
+
+---
+
+## The Problem: Seeing Everything at Once
+
+- Static maps show **global structure** but hide local detail.
+- Zooming in shows **detail**, but you lose context.
+- Scrolling & panning? Still fragmented.
+
+---
+
+## The Problem: Seeing Everything at Once
+::: {.columns}
+:::: {.column width="50%"}
+**Traditional Map**
+
+```{r}
+#| echo: true
+ggplot(data = vic, fill = NA, color = "grey70") + 
+  geom_sf() +
+  theme_map()
+```
+::::
+
+:::: {.column width="50%"}
+**Zoom-in Map**
+
+```{r}
+#| echo: true
+
+melbourne <- vic %>% filter(LGA_NAME == "MELBOURNE")
+
+center_bbox <- st_bbox(melbourne)
+
+ggplot(data = vic, fill = NA, color = "grey70") + 
+  geom_sf() +
+  geom_sf_label(aes(label = LGA_NAME)) +
+  coord_sf(xlim = center_bbox[c("xmin", "xmax")], ylim = center_bbox[c("ymin", "ymax")]) +
+  theme_map()
+```
+::::
+:::
+
+---
+
+## HOWEVER, WHAT HAPPENED IF YOU FOCUS ZONE IS A DENSE METROPOLITAN AREA?
+
+---
+
+### WILL THE PREVIOUS APPROACH STILL WORK?
+
+```{r}
+#| include: false
+
+conn_named_summary <- conn_named |> group_by(source) |> count() |> arrange(desc(n))
+
+conn_small <- conn_named |> 
+  filter(source %in% conn_named_summary$source[1:50])
+
+# Create two point layers: one for hospitals, one for RACFs
+hosp_points <- conn_small %>%
+  st_drop_geometry() %>%
+  distinct(hosp_name, long_hosp, lat_hosp) %>%
+  st_as_sf(coords = c("long_hosp", "lat_hosp"), crs = 4283)
+
+racf_points <- conn_small %>%
+  st_drop_geometry() %>%
+  distinct(racf_name, long_racf, lat_racf) %>%
+  st_as_sf(coords = c("long_racf", "lat_racf"), crs = 4283)
+
+conn_small <- st_transform(conn_small, st_crs(vic_fish))
+hosp_points <- st_transform(hosp_points, st_crs(vic_fish))
+racf_points <- st_transform(racf_points, st_crs(vic_fish))
+st_bbox(hosp_points)
+st_bbox(vic_fish)
+
+```
+
+::: {.columns}
+:::: {.column width="50%"}
+**Traditional Map**
+
+```{r}
+#| echo: true
+
+ggplot() +
+  geom_sf(data = vic_fish, fill = NA, color = "grey80") +
+  geom_sf(data = conn_small, aes(alpha = weight), color = "black") +
+  geom_sf(data = hosp_points, color = "red", size = 1, alpha = 0.5) +
+  geom_sf(data = racf_points, color = "blue", size = 1, alpha = 0.5) +
+  labs(title = "Transportation between Hospital and Age Care Facilities in VIC
+during COVID - 19") +
+  theme_map()
+```
+::::
+
+:::: {.column width="50%"}
+**Zoom-in Map**
+```{r}
+#| echo: true
+
+center_bbox <- st_transform(center_bbox, st_crs(vic_fish))
+
+ggplot() +
+  geom_sf(data = vic_fish, fill = NA, color = "grey") +
+  geom_sf(data = conn_small, aes(alpha = weight), color = "black") +
+  geom_sf(data = hosp_points, color = "red", size = 1, alpha = 0.5) +
+  geom_sf(data = racf_points, color = "blue", size = 1, alpha = 0.5) +
+  coord_sf(xlim = center_bbox[c("xmin", "xmax")], ylim = center_bbox[c("ymin", "ymax")]) +
+  labs(title = "Transportation between Hospital and Age Care Facilities in VIC
+during COVID - 19") +
+  theme_map()
+```
+::::
+:::
+
+---
+
+::: {style="text-align: center;"}
+### MAPYCUS MAXIMUS TO THE RESCUE
+
+```{r}
+#| include: false
+
+attr(st_geometry(conn_small), "bbox") <- attr(st_geometry(vic_fish), "bbox")
+attr(st_geometry(hosp_points), "bbox") <- attr(st_geometry(vic_fish), "bbox")
+attr(st_geometry(racf_points), "bbox") <- attr(st_geometry(vic_fish), "bbox")
+
+vic_fish_new  <- sf_fisheye(vic_fish, center = melbourne,
+                        r_in = 0.34, r_out = 0.5, zoom_factor = 20)
+conn_fish <- sf_fisheye(conn_small, center = melbourne,
+                        r_in = 1.07, r_out = 2.1, zoom_factor = 20)
+hosp_fish <- sf_fisheye(hosp_points, center = melbourne,
+                        r_in =1.18, r_out = 2.1, zoom_factor = 20)
+racf_fish <- sf_fisheye(racf_points, center = melbourne,
+                        r_in = 1.23, r_out = 2.5, zoom_factor = 20)
+
+new_zoom <- vic_fish_new |> filter(LGA_NAME == "MELBOURNE") |> st_bbox()
+
+ggplot() +
+    geom_sf(data = vic_fish_new, fill = NA, color = "grey") +
+    geom_sf(data = conn_fish, aes(alpha = weight), color = "black") +
+    geom_sf(data = hosp_fish, color = "red", size = 1, alpha = 0.5) +
+    geom_sf(data = racf_fish, color = "blue", size = 1, alpha = 0.5) +
+    labs(title = "Transportation between Hospital and Age Care Facilities in VIC
+during COVID - 19") +
+    theme_map()
+
+```
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(purrr)
+zoom_seq <- seq(1, 20, by = 0.1)
+center_pt_proj <- melbourne
+
+fisheye_frames <- map_dfr(zoom_seq, function(z) {
+    vic_fish  <- sf_fisheye(vic_fish, center = center_pt_proj,
+                          r_in = 0.34, r_out = 0.5, zoom_factor = z)
+    attr(st_geometry(conn_small), "bbox") <- attr(st_geometry(vic_fish), "bbox")
+    attr(st_geometry(hosp_points), "bbox") <- attr(st_geometry(vic_fish), "bbox")
+    attr(st_geometry(racf_points), "bbox") <- attr(st_geometry(vic_fish), "bbox")
+    conn_fish <- sf_fisheye(conn_small, center = center_pt_proj,
+                          r_in = 1.07, r_out = 2.1, zoom_factor = z)
+    hosp_points <- sf_fisheye(hosp_points, center = center_pt_proj,
+                          r_in = 1.18, r_out = 2.1, zoom_factor = z)
+    racf_points <- sf_fisheye(racf_points, center = center_pt_proj,
+                          r_in = 1.23, r_out = 2.5, zoom_factor = z)
+  
+  tibble(
+    zoom_factor = z,
+    vic = list(vic_fish),
+    conn = list(conn_fish),
+    hosp = list(hosp_points),
+    racf = list(racf_points)
+  ) 
+})
+fish_long <- map_dfr(1:nrow(fisheye_frames), function(i) {
+  z <- fisheye_frames$zoom_factor[i]
+  
+  bind_rows(
+    fisheye_frames$vic[[i]]  %>% mutate(type = "vic",  zoom_factor = z),
+    fisheye_frames$conn[[i]] %>% mutate(type = "conn", zoom_factor = z),
+    fisheye_frames$hosp[[i]] %>% mutate(type = "hosp", zoom_factor = z),
+    fisheye_frames$racf[[i]] %>% mutate(type = "racf", zoom_factor = z)
+  )
+})
+library(gganimate)
+library(ggplot2)
+
+p <- ggplot() +
+    # VIC map Polygon
+    geom_sf(data = subset(fish_long, type == "vic"),
+        fill = NA, color = "grey30") +
+    # Connections
+    geom_sf(data = subset(fish_long, type == "conn"),
+        aes(alpha = weight), color = "black") +
+    # Hospitals
+    geom_sf(data = subset(fish_long, type == "hosp"),
+        color = "red", size = 1, alpha = 0.5) +
+    # Age Care Facilities
+    geom_sf(data = subset(fish_long, type == "racf"),
+        color = "blue", size = 1, alpha = 0.5) +
+    #geom_sf_label(data = subset(fish_long, type == "hosp"),
+        #aes(label = hosp_name), color = "red", size = 2.5, nudge_y = 2000) +
+    #geom_sf_label(data = subset(fish_long, type == "racf"),
+        #aes(label = racf_name), color = "blue", size = 2.5, nudge_y = -2000) +
+    coord_sf(crs = st_crs(fish_long)) +
+    labs(title = "Fisheye Zoom: {current_frame}×") +
+    theme_minimal(base_size = 14) +
+    theme(legend.position = "none") +
+    transition_manual(zoom_factor)
+anim <- animate(
+  p,
+  fps = 25,       # 25 fps divides 100 evenly
+  duration = 8,   # seconds total
+  width = 800,
+  height = 600,
+  res = 150
+)
+
+anim_save("fisheye_zoom_gganimate.gif", animation = anim)
+```
+
+::: {style="text-align: center;"}
+![](images/fisheye_zoom_gganimate.gif){width="90%" fig-align="center"}
+:::
+::: 
+---
+
+## HOW DOES IT WORK?
+
+The transformation operates in **polar coordinates**:
+
+$$
+\begin{aligned}
+r &= \sqrt{(x - c_x)^2 + (y - c_y)^2} \\
+\theta &= \arctan2(y - c_y, x - c_x)
+\end{aligned}
+$$
+
+Then applies **zone-specific** radial mapping:
+
+$$
+r' = \begin{cases}
+\min(r \times z, r_{in}) & \text{if } r \leq r_{in} \text{ (focus)} \\
+f_{compress}(r, s) & \text{if } r_{in} < r \leq r_{out} \text{ (glue)} \\
+r & \text{if } r > r_{out} \text{ (context)}
+\end{cases}
+$$
+
+where $z$ = `zoom_factor`, $s$ = `squeeze_factor`
+
+## Core Implementation: `fisheye_fgc()`
+
+```{.r code-line-numbers="|2-6|8-12|15-16"}
+fisheye_fgc <- function(coords, cx = 0, cy = 0,
+  r_in = 0.34, r_out = 0.5,
+  zoom_factor = 1.5,
+  squeeze_factor = 0.3,
+  method = "expand",
+  revolution = 0.0) {
+  
+  # Convert to polar coordinates
+  dx <- coords[, 1] - cx
+  dy <- coords[, 2] - cy
+  radius <- sqrt(dx^2 + dy^2)
+  angle <- atan2(dy, dx)
+  
+  # Classify into zones
+  zone <- ifelse(radius <= r_in, "focus",
+           ifelse(radius <= r_out, "glue", "context"))
+  
+  # Apply transformations...
+  # Returns: matrix with x_new, y_new
+}
+```
+
+---
+
+## Geospatial Integration: `sf_fisheye()`
+
+Handles **real-world geodata** with automatic CRS management:
+
+```{.r}
+sf_fisheye <- function(sf_obj,
+  center = NULL,              # flexible: lon/lat, x/y, or sf object
+  center_crs = NULL,          # e.g., "EPSG:4326"
+  r_in = 0.34, r_out = 0.5,
+  zoom_factor = 1.5,
+  squeeze_factor = 0.35,
+  target_crs = NULL,          # auto-selects if NULL
+  preserve_aspect = TRUE) {
+  
+  # Auto CRS selection for Victoria:
+  # EPSG:7855 (GDA2020 / MGA Zone 55)
+  # Otherwise: UTM based on centroid
+}
+```
+
+---
+
+## Automatic CRS Handling
+
+::: {.columns}
+::: {.column width="60%"}
+**Smart projection selection:**
+
+1. **Victoria region** (140-150°E, 30-40°S)  
+   → EPSG:7855 (GDA2020 / MGA55)
+
+2. **Other lon/lat**  
+   → Auto-calculate UTM zone  
+   → EPSG:326## (N) or 327## (S)
+
+3. **Already projected**  
+   → Uses existing CRS
+
+4. **Returns in original CRS**  
+   → Seamless workflow
+:::
+
+::: {.column width="35%"}
+```{.r}
+# Melbourne CBD
+vic_fisheye <- sf_fisheye(
+  vic_sf,
+  center = c(144.9631, 
+             -37.8136),
+  center_crs = "EPSG:4326",
+  r_in = 0.34,
+  zoom_factor = 1.6
+)
+```
+:::
+:::
+
+---
+
+## Flexible Center Specification
+
+The `center` parameter accepts **multiple formats**:
+
+::: {.incremental}
+1. **Geographic coordinates** with `center_crs`
+   ```r
+   center = c(144.9631, -37.8136), center_crs = "EPSG:4326"
+   ```
+
+2. **Projected map units** (meters)
+   ```r
+   center = c(320000, 5810000)  # already in working CRS
+   ```
+
+3. **Normalized coordinates** [-1, 1]
+   ```r
+   center = c(0.2, -0.3), normalized_center = TRUE
+   ```
+
+4. **Any sf/sfc geometry** (centroid computed)
+   ```r
+   center = melbourne_cbd_polygon  # uses st_centroid()
+   ```
+:::
+
+---
+
+## Transformation Methods
+
+::: {.columns}
+::: {.column width="48%"}
+### `method = "expand"`
+
+**Bidirectional expansion** in glue zone:
+
+- Inner half → expands toward `r_in`
+- Outer half → expands toward `r_out`
+- Creates balanced transition
+
+```r
+fisheye_fgc(coords,
+  method = "expand",
+  squeeze_factor = 0.5)
+```
+:::
+
+::: {.column width="48%"}
+### `method = "outward"`
+
+**Compression toward outer boundary:**
+
+- Points hug the `r_out` boundary
+- Stronger compression effect
+- Good for tight packing
+
+```r
+fisheye_fgc(coords,
+  method = "outward",
+  squeeze_factor = 0.3)
+```
+:::
+:::
+
+---
+
+## Geometry Support via `st_transform_custom()`
+
+Handles all standard **sf geometry types**:
+
+| Type | Support | Notes |
+|------|---------|-------|
+| POINT | ✅ | Direct coordinate transform |
+| LINESTRING | ✅ | Preserves vertex order |
+| POLYGON | ✅ | **Auto-closes rings** |
+| MULTIPOLYGON | ✅ | Handles multiple parts & holes |
+
+::: {.callout-note}
+## Key Feature
+Polygon rings are **automatically re-closed** after transformation to ensure first vertex = last vertex.
+:::
+
+---
+
+## Example: Simple Grid Transform
+
+```{.r}
+library(mapycusmaximus)
+
+# Create test grid
+grid <- create_test_grid(range = c(-1, 1), spacing = 0.1)
+
+# Apply fisheye
+transformed <- fisheye_fgc(
+  grid, 
+  cx = 0, cy = 0,
+  r_in = 0.34, 
+  r_out = 0.5,
+  zoom_factor = 1.5,
+  squeeze_factor = 0.35
+)
+
+# Visualize
+plot_fisheye_fgc(grid, transformed, r_in = 0.34, r_out = 0.5)
+```
+
+---
+
+## Use Cases & Applications
+
+| Domain | Application | Benefit |
+|--------|-------------|---------|
+| **Urban Planning** | CBD-focused regional maps | Detail downtown + suburban context |
+| **Transportation** | Route & congestion analysis | Zoom bottlenecks + preserve network |
+| **Public Health** | Disease outbreak mapping | Magnify hotspots + regional spread |
+| **Real Estate** | Property visualization | Highlight listings + neighborhood |
+| **Emergency** | Incident response | Detail at scene + surrounding resources |
+| **Data Viz** | Network graphs | Focus on central nodes + topology |
+
+---
+
+## Visualization Helpers
+
+**Utility functions** for testing and visualization:
+
+```{.r}
+# Create regular grid
+grid <- create_test_grid(range = c(-1, 1), spacing = 0.1)
+
+# Classify points by zone
+zones <- classify_zones(grid, cx = 0, cy = 0, 
+                        r_in = 0.34, r_out = 0.5)
+
+# Side-by-side comparison plot
+plot_fisheye_fgc(original_coords, transformed_coords,
+                 cx = 0, cy = 0, r_in = 0.34, r_out = 0.5)
+```
+
+::: {.callout-tip}
+All visualization functions use **ggplot2** for easy customization
+:::
+
+---
+
+## Advanced: Preserve Aspect Ratio
+
+Control how normalization handles rectangular bounding boxes:
+
+::: {.columns}
+::: {.column width="48%"}
+### `preserve_aspect = TRUE`
+
+Uses **uniform scale**:
+$$s = \max(s_x, s_y)$$
+
+- Square normalization space
+- Maintains shape proportions
+- Default behavior
+:::
+
+::: {.column width="48%"}
+### `preserve_aspect = FALSE`
+
+Independent axis scaling:
+$$s_x, s_y \text{ separately}$$
+
+- May stretch shapes
+- Fills bounding box
+- Use with caution
+:::
+:::
+
+---
+
+## Future Enhancements
+
+::: {.incremental}
+- **Multi-focal fisheye**  
+  Blend multiple focus regions with weighted transitions
+
+- **Temporal fisheye**  
+  Animate transformations over time-series data
+
+- **3D extensions**  
+  Spherical and hemispherical projections
+
+- **AI-driven centers**  
+  Automatic focus detection from data density
+
+- **Interactive dashboards**  
+  Shiny apps with real-time parameter adjustment
+
+- **Web mapping**  
+  Integration with leaflet/mapview
+:::
+
+---
+
+## Installation & Getting Started
+
+```{.r}
+# Install from GitHub
+devtools::install_github("Alex-Nguyen-VN/mapycusmaximus")
+
+# Load package
+library(mapycusmaximus)
+library(sf)
+
+# Quick example
+data <- st_read("your_data.shp")
+
+result <- sf_fisheye(
+  data,
+  center = c(lon, lat),
+  center_crs = "EPSG:4326",
+  r_in = 0.34,
+  r_out = 0.5,
+  zoom_factor = 1.5
+)
+
+# Plot
+ggplot() + geom_sf(data = result)
+```
+
+---
+
+## Resources & Documentation
+
+::: {.columns}
+::: {.column width="48%"}
+### 📚 Package Links
+
+- **GitHub**: [Alex-Nguyen-VN/mapycusmaximus](https://github.com/Alex-Nguyen-VN/mapycusmaximus)
+- **Documentation**: README & vignettes
+- **Issues**: Bug reports & feature requests
+:::
+
+::: {.column width="48%"}
+### 📖 Key Functions
+
+- `fisheye_fgc()` - Core transformation
+- `sf_fisheye()` - Geospatial wrapper
+- `st_transform_custom()` - Geometry handler
+- `plot_fisheye_fgc()` - Visualization
+:::
+:::
+
+::: {.callout-important}
+## Contributions Welcome!
+Open source project seeking collaborators for enhancements and use cases
+:::
+
+---
+
+
+::: {.center .conclusion}
+# Thank You! {.gradient-text}
+
+### Transform Your Perspective — One Radius at a Time
+
+::: {.contact-info}
+**Alex Nguyen**  
+[GitHub: Alex-Nguyen-VN](https://github.com/Alex-Nguyen-VN)  
+`devtools::install_github("Alex-Nguyen-VN/mapycusmaximus")`
+:::
+
+
+::: {.quote-large}
+*"A cartographic lens to see both detail and context — at once"*
+:::
+:::

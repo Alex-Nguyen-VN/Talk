@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="slideshow_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slideshow_files/libs/quarto-html/tabby.min.js"></script>
+<script src="slideshow_files/libs/quarto-html/popper.min.js"></script>
+<script src="slideshow_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="slideshow_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slideshow_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="slideshow_files/libs/quarto-html/quarto-syntax-highlighting-dark-c9f0887447d3a639491f60c4af03832d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.43">
+
+  <meta name="author" content="Thanh Cuong (Alex) Nguyen">
+  <meta name="dcterms.date" content="2025-10-10">
+  <title>MAPYCUS MAXIMUS</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #2e3440; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #75715e; } /* Annotation */
+    code span.at { color: #f92672; } /* Attribute */
+    code span.bn { color: #ae81ff; } /* BaseN */
+    code span.bu { color: #66d9ef; } /* BuiltIn */
+    code span.cf { color: #f92672; } /* ControlFlow */
+    code span.ch { color: #e6db74; } /* Char */
+    code span.cn { color: #ae81ff; } /* Constant */
+    code span.co { color: #75715e; } /* Comment */
+    code span.cv { color: #75715e; } /* CommentVar */
+    code span.do { color: #75715e; } /* Documentation */
+    code span.dt { color: #66d9ef; font-style: italic; } /* DataType */
+    code span.dv { color: #ae81ff; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #a6e22e; font-weight: bold; } /* Extension */
+    code span.fl { color: #ae81ff; } /* Float */
+    code span.fu { color: #a6e22e; } /* Function */
+    code span.im { color: #f92672; } /* Import */
+    code span.in { color: #f1fa8c; } /* Information */
+    code span.kw { color: #f92672; } /* Keyword */
+    code span.op { color: #f8f8f2; } /* Operator */
+    code span.ot { color: #a6e22e; } /* Other */
+    code span.pp { color: #f92672; } /* Preprocessor */
+    code span.re { color: #75715e; } /* RegionMarker */
+    code span.sc { color: #ae81ff; } /* SpecialChar */
+    code span.ss { color: #e6db74; } /* SpecialString */
+    code span.st { color: #e6db74; } /* String */
+    code span.va { color: #f8f8f2; } /* Variable */
+    code span.vs { color: #e6db74; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="slideshow_files/libs/revealjs/dist/theme/quarto-65b672b9e1d19de6604e031abcc24104.css">
+  <link rel="stylesheet" href="styles/custom.css">
+  <link href="slideshow_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="slideshow_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="slideshow_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slideshow_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">MAPYCUS MAXIMUS</h1>
+  <p class="subtitle">When context meet detail</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Thanh Cuong (Alex) Nguyen 
+</div>
+</div>
+</div>
+
+  <p class="date">2025-10-10</p>
+</section>
+<section id="mapycus-maximus" class="slide level2">
+<h2><strong>MAPYCUS MAXIMUS</strong></h2>
+<h3 id="a-focusgluecontext-framework-for-geospatial-fisheye-transformations">A Focus–Glue–Context Framework for Geospatial Fisheye Transformations</h3>
+<p><strong>Alex Nguyen</strong></p>
+<p>Master of Business Analytics, Monash University</p>
+<p><a href="https://github.com/Alex-Nguyen-VN">GitHub: Alex-Nguyen-VN</a></p>
+<blockquote>
+<p><em>“A cartographic lens to see both detail and context — at once.”</em></p>
+</blockquote>
+</section>
+<section id="the-problem-seeing-everything-at-once" class="slide level2">
+<h2>The Problem: Seeing Everything at Once</h2>
+<ul>
+<li class="fragment">Static maps show <strong>global structure</strong> but hide local detail.</li>
+<li class="fragment">Zooming in shows <strong>detail</strong>, but you lose context.</li>
+<li class="fragment">Scrolling &amp; panning? Still fragmented.</li>
+</ul>
+</section>
+<section id="the-problem-seeing-everything-at-once-1" class="slide level2">
+<h2>The Problem: Seeing Everything at Once</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Traditional Map</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> vic, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey70"</span>) <span class="sc">+</span> </span>
+<span id="cb1-2"><a href=""></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb1-3"><a href=""></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slideshow_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Zoom-in Map</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>melbourne <span class="ot">&lt;-</span> vic <span class="sc">%&gt;%</span> <span class="fu">filter</span>(LGA_NAME <span class="sc">==</span> <span class="st">"MELBOURNE"</span>)</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>center_bbox <span class="ot">&lt;-</span> <span class="fu">st_bbox</span>(melbourne)</span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> vic, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey70"</span>) <span class="sc">+</span> </span>
+<span id="cb2-6"><a href=""></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb2-7"><a href=""></a>  <span class="fu">geom_sf_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> LGA_NAME)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href=""></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> center_bbox[<span class="fu">c</span>(<span class="st">"xmin"</span>, <span class="st">"xmax"</span>)], <span class="at">ylim =</span> center_bbox[<span class="fu">c</span>(<span class="st">"ymin"</span>, <span class="st">"ymax"</span>)]) <span class="sc">+</span></span>
+<span id="cb2-9"><a href=""></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slideshow_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="however-what-happened-if-you-focus-zone-is-a-dense-metropolitan-area" class="slide level2">
+<h2>HOWEVER, WHAT HAPPENED IF YOU FOCUS ZONE IS A DENSE METROPOLITAN AREA?</h2>
+</section>
+<section class="slide level2">
+
+<h3 id="will-the-previous-approach-still-work">WILL THE PREVIOUS APPROACH STILL WORK?</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Traditional Map</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> vic_fish, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey80"</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> conn_small, <span class="fu">aes</span>(<span class="at">alpha =</span> weight), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> hosp_points, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> racf_points, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Transportation between Hospital and Age Care Facilities in VIC</span></span>
+<span id="cb3-7"><a href=""></a><span class="st">during COVID - 19"</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a href=""></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slideshow_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Zoom-in Map</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>center_bbox <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(center_bbox, <span class="fu">st_crs</span>(vic_fish))</span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> vic_fish, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> conn_small, <span class="fu">aes</span>(<span class="at">alpha =</span> weight), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> hosp_points, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> racf_points, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a href=""></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> center_bbox[<span class="fu">c</span>(<span class="st">"xmin"</span>, <span class="st">"xmax"</span>)], <span class="at">ylim =</span> center_bbox[<span class="fu">c</span>(<span class="st">"ymin"</span>, <span class="st">"ymax"</span>)]) <span class="sc">+</span></span>
+<span id="cb4-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Transportation between Hospital and Age Care Facilities in VIC</span></span>
+<span id="cb4-10"><a href=""></a><span class="st">during COVID - 19"</span>) <span class="sc">+</span></span>
+<span id="cb4-11"><a href=""></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slideshow_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<section id="mapycus-maximus-to-the-rescue" style="text-align: center;">
+<h3>MAPYCUS MAXIMUS TO THE RESCUE</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(purrr)</span>
+<span id="cb5-2"><a href=""></a>zoom_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb5-3"><a href=""></a>center_pt_proj <span class="ot">&lt;-</span> melbourne</span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a>fisheye_frames <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(zoom_seq, <span class="cf">function</span>(z) {</span>
+<span id="cb5-6"><a href=""></a>    vic_fish  <span class="ot">&lt;-</span> <span class="fu">sf_fisheye</span>(vic_fish, <span class="at">center =</span> center_pt_proj,</span>
+<span id="cb5-7"><a href=""></a>                          <span class="at">r_in =</span> <span class="fl">0.34</span>, <span class="at">r_out =</span> <span class="fl">0.5</span>, <span class="at">zoom_factor =</span> z)</span>
+<span id="cb5-8"><a href=""></a>    <span class="fu">attr</span>(<span class="fu">st_geometry</span>(conn_small), <span class="st">"bbox"</span>) <span class="ot">&lt;-</span> <span class="fu">attr</span>(<span class="fu">st_geometry</span>(vic_fish), <span class="st">"bbox"</span>)</span>
+<span id="cb5-9"><a href=""></a>    <span class="fu">attr</span>(<span class="fu">st_geometry</span>(hosp_points), <span class="st">"bbox"</span>) <span class="ot">&lt;-</span> <span class="fu">attr</span>(<span class="fu">st_geometry</span>(vic_fish), <span class="st">"bbox"</span>)</span>
+<span id="cb5-10"><a href=""></a>    <span class="fu">attr</span>(<span class="fu">st_geometry</span>(racf_points), <span class="st">"bbox"</span>) <span class="ot">&lt;-</span> <span class="fu">attr</span>(<span class="fu">st_geometry</span>(vic_fish), <span class="st">"bbox"</span>)</span>
+<span id="cb5-11"><a href=""></a>    conn_fish <span class="ot">&lt;-</span> <span class="fu">sf_fisheye</span>(conn_small, <span class="at">center =</span> center_pt_proj,</span>
+<span id="cb5-12"><a href=""></a>                          <span class="at">r_in =</span> <span class="fl">1.07</span>, <span class="at">r_out =</span> <span class="fl">2.1</span>, <span class="at">zoom_factor =</span> z)</span>
+<span id="cb5-13"><a href=""></a>    hosp_points <span class="ot">&lt;-</span> <span class="fu">sf_fisheye</span>(hosp_points, <span class="at">center =</span> center_pt_proj,</span>
+<span id="cb5-14"><a href=""></a>                          <span class="at">r_in =</span> <span class="fl">1.18</span>, <span class="at">r_out =</span> <span class="fl">2.1</span>, <span class="at">zoom_factor =</span> z)</span>
+<span id="cb5-15"><a href=""></a>    racf_points <span class="ot">&lt;-</span> <span class="fu">sf_fisheye</span>(racf_points, <span class="at">center =</span> center_pt_proj,</span>
+<span id="cb5-16"><a href=""></a>                          <span class="at">r_in =</span> <span class="fl">1.23</span>, <span class="at">r_out =</span> <span class="fl">2.5</span>, <span class="at">zoom_factor =</span> z)</span>
+<span id="cb5-17"><a href=""></a>  </span>
+<span id="cb5-18"><a href=""></a>  <span class="fu">tibble</span>(</span>
+<span id="cb5-19"><a href=""></a>    <span class="at">zoom_factor =</span> z,</span>
+<span id="cb5-20"><a href=""></a>    <span class="at">vic =</span> <span class="fu">list</span>(vic_fish),</span>
+<span id="cb5-21"><a href=""></a>    <span class="at">conn =</span> <span class="fu">list</span>(conn_fish),</span>
+<span id="cb5-22"><a href=""></a>    <span class="at">hosp =</span> <span class="fu">list</span>(hosp_points),</span>
+<span id="cb5-23"><a href=""></a>    <span class="at">racf =</span> <span class="fu">list</span>(racf_points)</span>
+<span id="cb5-24"><a href=""></a>  ) </span>
+<span id="cb5-25"><a href=""></a>})</span>
+<span id="cb5-26"><a href=""></a>fish_long <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(fisheye_frames), <span class="cf">function</span>(i) {</span>
+<span id="cb5-27"><a href=""></a>  z <span class="ot">&lt;-</span> fisheye_frames<span class="sc">$</span>zoom_factor[i]</span>
+<span id="cb5-28"><a href=""></a>  </span>
+<span id="cb5-29"><a href=""></a>  <span class="fu">bind_rows</span>(</span>
+<span id="cb5-30"><a href=""></a>    fisheye_frames<span class="sc">$</span>vic[[i]]  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">"vic"</span>,  <span class="at">zoom_factor =</span> z),</span>
+<span id="cb5-31"><a href=""></a>    fisheye_frames<span class="sc">$</span>conn[[i]] <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">"conn"</span>, <span class="at">zoom_factor =</span> z),</span>
+<span id="cb5-32"><a href=""></a>    fisheye_frames<span class="sc">$</span>hosp[[i]] <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">"hosp"</span>, <span class="at">zoom_factor =</span> z),</span>
+<span id="cb5-33"><a href=""></a>    fisheye_frames<span class="sc">$</span>racf[[i]] <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">"racf"</span>, <span class="at">zoom_factor =</span> z)</span>
+<span id="cb5-34"><a href=""></a>  )</span>
+<span id="cb5-35"><a href=""></a>})</span>
+<span id="cb5-36"><a href=""></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb5-37"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-38"><a href=""></a></span>
+<span id="cb5-39"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-40"><a href=""></a>    <span class="co"># VIC map Polygon</span></span>
+<span id="cb5-41"><a href=""></a>    <span class="fu">geom_sf</span>(<span class="at">data =</span> <span class="fu">subset</span>(fish_long, type <span class="sc">==</span> <span class="st">"vic"</span>),</span>
+<span id="cb5-42"><a href=""></a>        <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey30"</span>) <span class="sc">+</span></span>
+<span id="cb5-43"><a href=""></a>    <span class="co"># Connections</span></span>
+<span id="cb5-44"><a href=""></a>    <span class="fu">geom_sf</span>(<span class="at">data =</span> <span class="fu">subset</span>(fish_long, type <span class="sc">==</span> <span class="st">"conn"</span>),</span>
+<span id="cb5-45"><a href=""></a>        <span class="fu">aes</span>(<span class="at">alpha =</span> weight), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb5-46"><a href=""></a>    <span class="co"># Hospitals</span></span>
+<span id="cb5-47"><a href=""></a>    <span class="fu">geom_sf</span>(<span class="at">data =</span> <span class="fu">subset</span>(fish_long, type <span class="sc">==</span> <span class="st">"hosp"</span>),</span>
+<span id="cb5-48"><a href=""></a>        <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb5-49"><a href=""></a>    <span class="co"># Age Care Facilities</span></span>
+<span id="cb5-50"><a href=""></a>    <span class="fu">geom_sf</span>(<span class="at">data =</span> <span class="fu">subset</span>(fish_long, type <span class="sc">==</span> <span class="st">"racf"</span>),</span>
+<span id="cb5-51"><a href=""></a>        <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb5-52"><a href=""></a>    <span class="co">#geom_sf_label(data = subset(fish_long, type == "hosp"),</span></span>
+<span id="cb5-53"><a href=""></a>        <span class="co">#aes(label = hosp_name), color = "red", size = 2.5, nudge_y = 2000) +</span></span>
+<span id="cb5-54"><a href=""></a>    <span class="co">#geom_sf_label(data = subset(fish_long, type == "racf"),</span></span>
+<span id="cb5-55"><a href=""></a>        <span class="co">#aes(label = racf_name), color = "blue", size = 2.5, nudge_y = -2000) +</span></span>
+<span id="cb5-56"><a href=""></a>    <span class="fu">coord_sf</span>(<span class="at">crs =</span> <span class="fu">st_crs</span>(fish_long)) <span class="sc">+</span></span>
+<span id="cb5-57"><a href=""></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fisheye Zoom: {current_frame}×"</span>) <span class="sc">+</span></span>
+<span id="cb5-58"><a href=""></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb5-59"><a href=""></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb5-60"><a href=""></a>    <span class="fu">transition_manual</span>(zoom_factor)</span>
+<span id="cb5-61"><a href=""></a>anim <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
+<span id="cb5-62"><a href=""></a>  p,</span>
+<span id="cb5-63"><a href=""></a>  <span class="at">fps =</span> <span class="dv">25</span>,       <span class="co"># 25 fps divides 100 evenly</span></span>
+<span id="cb5-64"><a href=""></a>  <span class="at">duration =</span> <span class="dv">8</span>,   <span class="co"># seconds total</span></span>
+<span id="cb5-65"><a href=""></a>  <span class="at">width =</span> <span class="dv">800</span>,</span>
+<span id="cb5-66"><a href=""></a>  <span class="at">height =</span> <span class="dv">600</span>,</span>
+<span id="cb5-67"><a href=""></a>  <span class="at">res =</span> <span class="dv">150</span></span>
+<span id="cb5-68"><a href=""></a>)</span>
+<span id="cb5-69"><a href=""></a></span>
+<span id="cb5-70"><a href=""></a><span class="fu">anim_save</span>(<span class="st">"fisheye_zoom_gganimate.gif"</span>, <span class="at">animation =</span> anim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/fisheye_zoom_gganimate.gif" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="how-does-it-work" class="slide level2">
+<h2>HOW DOES IT WORK?</h2>
+<p>The transformation operates in <strong>polar coordinates</strong>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+r &amp;= \sqrt{(x - c_x)^2 + (y - c_y)^2} \\
+\theta &amp;= \arctan2(y - c_y, x - c_x)
+\end{aligned}
+\]</span></p>
+<p>Then applies <strong>zone-specific</strong> radial mapping:</p>
+<p><span class="math display">\[
+r' = \begin{cases}
+\min(r \times z, r_{in}) &amp; \text{if } r \leq r_{in} \text{ (focus)} \\
+f_{compress}(r, s) &amp; \text{if } r_{in} &lt; r \leq r_{out} \text{ (glue)} \\
+r &amp; \text{if } r &gt; r_{out} \text{ (context)}
+\end{cases}
+\]</span></p>
+<p>where <span class="math inline">\(z\)</span> = <code>zoom_factor</code>, <span class="math inline">\(s\)</span> = <code>squeeze_factor</code></p>
+</section>
+<section id="core-implementation-fisheye_fgc" class="slide level2">
+<h2>Core Implementation: <code>fisheye_fgc()</code></h2>
+<div class="sourceCode" id="cb6" data-code-line-numbers="|2-6|8-12|15-16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>fisheye_fgc <span class="ot">&lt;-</span> <span class="cf">function</span>(coords, <span class="at">cx =</span> <span class="dv">0</span>, <span class="at">cy =</span> <span class="dv">0</span>,</span>
+<span id="cb6-2"><a href=""></a>  <span class="at">r_in =</span> <span class="fl">0.34</span>, <span class="at">r_out =</span> <span class="fl">0.5</span>,</span>
+<span id="cb6-3"><a href=""></a>  <span class="at">zoom_factor =</span> <span class="fl">1.5</span>,</span>
+<span id="cb6-4"><a href=""></a>  <span class="at">squeeze_factor =</span> <span class="fl">0.3</span>,</span>
+<span id="cb6-5"><a href=""></a>  <span class="at">method =</span> <span class="st">"expand"</span>,</span>
+<span id="cb6-6"><a href=""></a>  <span class="at">revolution =</span> <span class="fl">0.0</span>) {</span>
+<span id="cb6-7"><a href=""></a>  </span>
+<span id="cb6-8"><a href=""></a>  <span class="co"># Convert to polar coordinates</span></span>
+<span id="cb6-9"><a href=""></a>  dx <span class="ot">&lt;-</span> coords[, <span class="dv">1</span>] <span class="sc">-</span> cx</span>
+<span id="cb6-10"><a href=""></a>  dy <span class="ot">&lt;-</span> coords[, <span class="dv">2</span>] <span class="sc">-</span> cy</span>
+<span id="cb6-11"><a href=""></a>  radius <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(dx<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> dy<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-12"><a href=""></a>  angle <span class="ot">&lt;-</span> <span class="fu">atan2</span>(dy, dx)</span>
+<span id="cb6-13"><a href=""></a>  </span>
+<span id="cb6-14"><a href=""></a>  <span class="co"># Classify into zones</span></span>
+<span id="cb6-15"><a href=""></a>  zone <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(radius <span class="sc">&lt;=</span> r_in, <span class="st">"focus"</span>,</span>
+<span id="cb6-16"><a href=""></a>           <span class="fu">ifelse</span>(radius <span class="sc">&lt;=</span> r_out, <span class="st">"glue"</span>, <span class="st">"context"</span>))</span>
+<span id="cb6-17"><a href=""></a>  </span>
+<span id="cb6-18"><a href=""></a>  <span class="co"># Apply transformations...</span></span>
+<span id="cb6-19"><a href=""></a>  <span class="co"># Returns: matrix with x_new, y_new</span></span>
+<span id="cb6-20"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="geospatial-integration-sf_fisheye" class="slide level2">
+<h2>Geospatial Integration: <code>sf_fisheye()</code></h2>
+<p>Handles <strong>real-world geodata</strong> with automatic CRS management:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>sf_fisheye <span class="ot">&lt;-</span> <span class="cf">function</span>(sf_obj,</span>
+<span id="cb7-2"><a href=""></a>  <span class="at">center =</span> <span class="cn">NULL</span>,              <span class="co"># flexible: lon/lat, x/y, or sf object</span></span>
+<span id="cb7-3"><a href=""></a>  <span class="at">center_crs =</span> <span class="cn">NULL</span>,          <span class="co"># e.g., "EPSG:4326"</span></span>
+<span id="cb7-4"><a href=""></a>  <span class="at">r_in =</span> <span class="fl">0.34</span>, <span class="at">r_out =</span> <span class="fl">0.5</span>,</span>
+<span id="cb7-5"><a href=""></a>  <span class="at">zoom_factor =</span> <span class="fl">1.5</span>,</span>
+<span id="cb7-6"><a href=""></a>  <span class="at">squeeze_factor =</span> <span class="fl">0.35</span>,</span>
+<span id="cb7-7"><a href=""></a>  <span class="at">target_crs =</span> <span class="cn">NULL</span>,          <span class="co"># auto-selects if NULL</span></span>
+<span id="cb7-8"><a href=""></a>  <span class="at">preserve_aspect =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb7-9"><a href=""></a>  </span>
+<span id="cb7-10"><a href=""></a>  <span class="co"># Auto CRS selection for Victoria:</span></span>
+<span id="cb7-11"><a href=""></a>  <span class="co"># EPSG:7855 (GDA2020 / MGA Zone 55)</span></span>
+<span id="cb7-12"><a href=""></a>  <span class="co"># Otherwise: UTM based on centroid</span></span>
+<span id="cb7-13"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="automatic-crs-handling" class="slide level2">
+<h2>Automatic CRS Handling</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Smart projection selection:</strong></p>
+<ol type="1">
+<li class="fragment"><p><strong>Victoria region</strong> (140-150°E, 30-40°S)<br>
+→ EPSG:7855 (GDA2020 / MGA55)</p></li>
+<li class="fragment"><p><strong>Other lon/lat</strong><br>
+→ Auto-calculate UTM zone<br>
+→ EPSG:326## (N) or 327## (S)</p></li>
+<li class="fragment"><p><strong>Already projected</strong><br>
+→ Uses existing CRS</p></li>
+<li class="fragment"><p><strong>Returns in original CRS</strong><br>
+→ Seamless workflow</p></li>
+</ol>
+</div><div class="column" style="width:35%;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Melbourne CBD</span></span>
+<span id="cb8-2"><a href=""></a>vic_fisheye <span class="ot">&lt;-</span> <span class="fu">sf_fisheye</span>(</span>
+<span id="cb8-3"><a href=""></a>  vic_sf,</span>
+<span id="cb8-4"><a href=""></a>  <span class="at">center =</span> <span class="fu">c</span>(<span class="fl">144.9631</span>, </span>
+<span id="cb8-5"><a href=""></a>             <span class="sc">-</span><span class="fl">37.8136</span>),</span>
+<span id="cb8-6"><a href=""></a>  <span class="at">center_crs =</span> <span class="st">"EPSG:4326"</span>,</span>
+<span id="cb8-7"><a href=""></a>  <span class="at">r_in =</span> <span class="fl">0.34</span>,</span>
+<span id="cb8-8"><a href=""></a>  <span class="at">zoom_factor =</span> <span class="fl">1.6</span></span>
+<span id="cb8-9"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="flexible-center-specification" class="slide level2">
+<h2>Flexible Center Specification</h2>
+<p>The <code>center</code> parameter accepts <strong>multiple formats</strong>:</p>
+<div>
+<ol type="1">
+<li class="fragment"><p><strong>Geographic coordinates</strong> with <code>center_crs</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>center <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">144.9631</span>, <span class="sc">-</span><span class="fl">37.8136</span>), center_crs <span class="ot">=</span> <span class="st">"EPSG:4326"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li class="fragment"><p><strong>Projected map units</strong> (meters)</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>center <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">320000</span>, <span class="dv">5810000</span>)  <span class="co"># already in working CRS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li class="fragment"><p><strong>Normalized coordinates</strong> [-1, 1]</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>center <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="sc">-</span><span class="fl">0.3</span>), normalized_center <span class="ot">=</span> <span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li class="fragment"><p><strong>Any sf/sfc geometry</strong> (centroid computed)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>center <span class="ot">=</span> melbourne_cbd_polygon  <span class="co"># uses st_centroid()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</div>
+</section>
+<section id="transformation-methods" class="slide level2">
+<h2>Transformation Methods</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<h3 id="method-expand"><code>method = "expand"</code></h3>
+<p><strong>Bidirectional expansion</strong> in glue zone:</p>
+<ul>
+<li class="fragment">Inner half → expands toward <code>r_in</code></li>
+<li class="fragment">Outer half → expands toward <code>r_out</code></li>
+<li class="fragment">Creates balanced transition</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">fisheye_fgc</span>(coords,</span>
+<span id="cb13-2"><a href=""></a>  <span class="at">method =</span> <span class="st">"expand"</span>,</span>
+<span id="cb13-3"><a href=""></a>  <span class="at">squeeze_factor =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:48%;">
+<h3 id="method-outward"><code>method = "outward"</code></h3>
+<p><strong>Compression toward outer boundary:</strong></p>
+<ul>
+<li class="fragment">Points hug the <code>r_out</code> boundary</li>
+<li class="fragment">Stronger compression effect</li>
+<li class="fragment">Good for tight packing</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">fisheye_fgc</span>(coords,</span>
+<span id="cb14-2"><a href=""></a>  <span class="at">method =</span> <span class="st">"outward"</span>,</span>
+<span id="cb14-3"><a href=""></a>  <span class="at">squeeze_factor =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="geometry-support-via-st_transform_custom" class="slide level2">
+<h2>Geometry Support via <code>st_transform_custom()</code></h2>
+<p>Handles all standard <strong>sf geometry types</strong>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Support</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>POINT</td>
+<td>✅</td>
+<td>Direct coordinate transform</td>
+</tr>
+<tr class="even">
+<td>LINESTRING</td>
+<td>✅</td>
+<td>Preserves vertex order</td>
+</tr>
+<tr class="odd">
+<td>POLYGON</td>
+<td>✅</td>
+<td><strong>Auto-closes rings</strong></td>
+</tr>
+<tr class="even">
+<td>MULTIPOLYGON</td>
+<td>✅</td>
+<td>Handles multiple parts &amp; holes</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key Feature</strong></p>
+</div>
+<div class="callout-content">
+<p>Polygon rings are <strong>automatically re-closed</strong> after transformation to ensure first vertex = last vertex.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-simple-grid-transform" class="slide level2">
+<h2>Example: Simple Grid Transform</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(mapycusmaximus)</span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a><span class="co"># Create test grid</span></span>
+<span id="cb15-4"><a href=""></a>grid <span class="ot">&lt;-</span> <span class="fu">create_test_grid</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">spacing =</span> <span class="fl">0.1</span>)</span>
+<span id="cb15-5"><a href=""></a></span>
+<span id="cb15-6"><a href=""></a><span class="co"># Apply fisheye</span></span>
+<span id="cb15-7"><a href=""></a>transformed <span class="ot">&lt;-</span> <span class="fu">fisheye_fgc</span>(</span>
+<span id="cb15-8"><a href=""></a>  grid, </span>
+<span id="cb15-9"><a href=""></a>  <span class="at">cx =</span> <span class="dv">0</span>, <span class="at">cy =</span> <span class="dv">0</span>,</span>
+<span id="cb15-10"><a href=""></a>  <span class="at">r_in =</span> <span class="fl">0.34</span>, </span>
+<span id="cb15-11"><a href=""></a>  <span class="at">r_out =</span> <span class="fl">0.5</span>,</span>
+<span id="cb15-12"><a href=""></a>  <span class="at">zoom_factor =</span> <span class="fl">1.5</span>,</span>
+<span id="cb15-13"><a href=""></a>  <span class="at">squeeze_factor =</span> <span class="fl">0.35</span></span>
+<span id="cb15-14"><a href=""></a>)</span>
+<span id="cb15-15"><a href=""></a></span>
+<span id="cb15-16"><a href=""></a><span class="co"># Visualize</span></span>
+<span id="cb15-17"><a href=""></a><span class="fu">plot_fisheye_fgc</span>(grid, transformed, <span class="at">r_in =</span> <span class="fl">0.34</span>, <span class="at">r_out =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="use-cases-applications" class="slide level2">
+<h2>Use Cases &amp; Applications</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Domain</th>
+<th>Application</th>
+<th>Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Urban Planning</strong></td>
+<td>CBD-focused regional maps</td>
+<td>Detail downtown + suburban context</td>
+</tr>
+<tr class="even">
+<td><strong>Transportation</strong></td>
+<td>Route &amp; congestion analysis</td>
+<td>Zoom bottlenecks + preserve network</td>
+</tr>
+<tr class="odd">
+<td><strong>Public Health</strong></td>
+<td>Disease outbreak mapping</td>
+<td>Magnify hotspots + regional spread</td>
+</tr>
+<tr class="even">
+<td><strong>Real Estate</strong></td>
+<td>Property visualization</td>
+<td>Highlight listings + neighborhood</td>
+</tr>
+<tr class="odd">
+<td><strong>Emergency</strong></td>
+<td>Incident response</td>
+<td>Detail at scene + surrounding resources</td>
+</tr>
+<tr class="even">
+<td><strong>Data Viz</strong></td>
+<td>Network graphs</td>
+<td>Focus on central nodes + topology</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visualization-helpers" class="slide level2">
+<h2>Visualization Helpers</h2>
+<p><strong>Utility functions</strong> for testing and visualization:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Create regular grid</span></span>
+<span id="cb16-2"><a href=""></a>grid <span class="ot">&lt;-</span> <span class="fu">create_test_grid</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">spacing =</span> <span class="fl">0.1</span>)</span>
+<span id="cb16-3"><a href=""></a></span>
+<span id="cb16-4"><a href=""></a><span class="co"># Classify points by zone</span></span>
+<span id="cb16-5"><a href=""></a>zones <span class="ot">&lt;-</span> <span class="fu">classify_zones</span>(grid, <span class="at">cx =</span> <span class="dv">0</span>, <span class="at">cy =</span> <span class="dv">0</span>, </span>
+<span id="cb16-6"><a href=""></a>                        <span class="at">r_in =</span> <span class="fl">0.34</span>, <span class="at">r_out =</span> <span class="fl">0.5</span>)</span>
+<span id="cb16-7"><a href=""></a></span>
+<span id="cb16-8"><a href=""></a><span class="co"># Side-by-side comparison plot</span></span>
+<span id="cb16-9"><a href=""></a><span class="fu">plot_fisheye_fgc</span>(original_coords, transformed_coords,</span>
+<span id="cb16-10"><a href=""></a>                 <span class="at">cx =</span> <span class="dv">0</span>, <span class="at">cy =</span> <span class="dv">0</span>, <span class="at">r_in =</span> <span class="fl">0.34</span>, <span class="at">r_out =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>All visualization functions use <strong>ggplot2</strong> for easy customization</p>
+</div>
+</div>
+</div>
+</section>
+<section id="advanced-preserve-aspect-ratio" class="slide level2">
+<h2>Advanced: Preserve Aspect Ratio</h2>
+<p>Control how normalization handles rectangular bounding boxes:</p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<h3 id="preserve_aspect-true"><code>preserve_aspect = TRUE</code></h3>
+<p>Uses <strong>uniform scale</strong>: <span class="math display">\[s = \max(s_x, s_y)\]</span></p>
+<ul>
+<li class="fragment">Square normalization space</li>
+<li class="fragment">Maintains shape proportions</li>
+<li class="fragment">Default behavior</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<h3 id="preserve_aspect-false"><code>preserve_aspect = FALSE</code></h3>
+<p>Independent axis scaling: <span class="math display">\[s_x, s_y \text{ separately}\]</span></p>
+<ul>
+<li class="fragment">May stretch shapes</li>
+<li class="fragment">Fills bounding box</li>
+<li class="fragment">Use with caution</li>
+</ul>
+</div></div>
+</section>
+<section id="future-enhancements" class="slide level2">
+<h2>Future Enhancements</h2>
+<div>
+<ul>
+<li class="fragment"><p><strong>Multi-focal fisheye</strong><br>
+Blend multiple focus regions with weighted transitions</p></li>
+<li class="fragment"><p><strong>Temporal fisheye</strong><br>
+Animate transformations over time-series data</p></li>
+<li class="fragment"><p><strong>3D extensions</strong><br>
+Spherical and hemispherical projections</p></li>
+<li class="fragment"><p><strong>AI-driven centers</strong><br>
+Automatic focus detection from data density</p></li>
+<li class="fragment"><p><strong>Interactive dashboards</strong><br>
+Shiny apps with real-time parameter adjustment</p></li>
+<li class="fragment"><p><strong>Web mapping</strong><br>
+Integration with leaflet/mapview</p></li>
+</ul>
+</div>
+</section>
+<section id="installation-getting-started" class="slide level2">
+<h2>Installation &amp; Getting Started</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="co"># Install from GitHub</span></span>
+<span id="cb17-2"><a href=""></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"Alex-Nguyen-VN/mapycusmaximus"</span>)</span>
+<span id="cb17-3"><a href=""></a></span>
+<span id="cb17-4"><a href=""></a><span class="co"># Load package</span></span>
+<span id="cb17-5"><a href=""></a><span class="fu">library</span>(mapycusmaximus)</span>
+<span id="cb17-6"><a href=""></a><span class="fu">library</span>(sf)</span>
+<span id="cb17-7"><a href=""></a></span>
+<span id="cb17-8"><a href=""></a><span class="co"># Quick example</span></span>
+<span id="cb17-9"><a href=""></a>data <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"your_data.shp"</span>)</span>
+<span id="cb17-10"><a href=""></a></span>
+<span id="cb17-11"><a href=""></a>result <span class="ot">&lt;-</span> <span class="fu">sf_fisheye</span>(</span>
+<span id="cb17-12"><a href=""></a>  data,</span>
+<span id="cb17-13"><a href=""></a>  <span class="at">center =</span> <span class="fu">c</span>(lon, lat),</span>
+<span id="cb17-14"><a href=""></a>  <span class="at">center_crs =</span> <span class="st">"EPSG:4326"</span>,</span>
+<span id="cb17-15"><a href=""></a>  <span class="at">r_in =</span> <span class="fl">0.34</span>,</span>
+<span id="cb17-16"><a href=""></a>  <span class="at">r_out =</span> <span class="fl">0.5</span>,</span>
+<span id="cb17-17"><a href=""></a>  <span class="at">zoom_factor =</span> <span class="fl">1.5</span></span>
+<span id="cb17-18"><a href=""></a>)</span>
+<span id="cb17-19"><a href=""></a></span>
+<span id="cb17-20"><a href=""></a><span class="co"># Plot</span></span>
+<span id="cb17-21"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="resources-documentation" class="slide level2">
+<h2>Resources &amp; Documentation</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<h3 id="package-links">📚 Package Links</h3>
+<ul>
+<li class="fragment"><strong>GitHub</strong>: <a href="https://github.com/Alex-Nguyen-VN/mapycusmaximus">Alex-Nguyen-VN/mapycusmaximus</a></li>
+<li class="fragment"><strong>Documentation</strong>: README &amp; vignettes</li>
+<li class="fragment"><strong>Issues</strong>: Bug reports &amp; feature requests</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<h3 id="key-functions">📖 Key Functions</h3>
+<ul>
+<li class="fragment"><code>fisheye_fgc()</code> - Core transformation</li>
+<li class="fragment"><code>sf_fisheye()</code> - Geospatial wrapper</li>
+<li class="fragment"><code>st_transform_custom()</code> - Geometry handler</li>
+<li class="fragment"><code>plot_fisheye_fgc()</code> - Visualization</li>
+</ul>
+</div></div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Contributions Welcome!</strong></p>
+</div>
+<div class="callout-content">
+<p>Open source project seeking collaborators for enhancements and use cases</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="thank-you" class="title-slide slide level1 gradient-text center conclusion">
+<h1>Thank You!</h1>
+
+</section>
+<h3 id="transform-your-perspective-one-radius-at-a-time">Transform Your Perspective — One Radius at a Time</h3>
+<div class="contact-info">
+<p><strong>Alex Nguyen</strong><br>
+<a href="https://github.com/Alex-Nguyen-VN">GitHub: Alex-Nguyen-VN</a><br>
+<code>devtools::install_github("Alex-Nguyen-VN/mapycusmaximus")</code></p>
+</div>
+<div class="quote-large">
+<p><em>“A cartographic lens to see both detail and context — at once”</em></p>
+</div></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="slideshow_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="slideshow_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="slideshow_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="slideshow_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="slideshow_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slideshow_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="slideshow_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="slideshow_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="slideshow_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="slideshow_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
