@@ -9,7 +9,7 @@ Each folder contains a self-contained **Quarto slideshow** (Reveal.js) or **PDF 
 
 | Folder | Topic | Format | Description |
 |:--------|:-------|:--------|:-------------|
-| [`mapycusmaximus_talk/`](mapycusmaximus_talk/) | *Focus–Glue–Context (FGC) Fisheye Transformations for R* | Quarto (Reveal.js) | A live demo and conceptual overview of **geometric fisheye mapping** for spatial visualization, featuring the `mapycusmaximus` R package. |
+| [`mapycusmaximus_talk/`](mapycus_slide/) | *Focus–Glue–Context (FGC) Fisheye Transformations for R* | Quarto (Reveal.js) | A live demo and conceptual overview of **geometric fisheye mapping** for spatial visualization, featuring the `mapycusmaximus` R package. |
 ---
 
 ## 🚀 Quick Start
