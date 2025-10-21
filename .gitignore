@@ -47,3 +47,13 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Heavy file
+
+.vdoc.a59a1f5c-0605-4e3e-bb48-a62e05bfea98.r
+.vdoc.b1ab613b-2753-4adb-8566-97771c2eb56d.r
+.vdoc.b9ae7465-3728-48b4-87ff-49e1e6302da4.r
+.vdoc.cd7c45f8-3e77-49e1-add2-a750b0249e4e.r
+.vdoc.e0e9d328-99a7-4bc9-be61-84b304dc6709.r
+.vdoc.ffd2066a-e765-4099-a5d6-55ea188ac703.r
+australia-free-shp/
