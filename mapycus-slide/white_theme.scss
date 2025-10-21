@@ -1,0 +1,435 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&display=swap');
+$presentation-heading-font: "Libre Franklin", sans-serif;
+$font-family-sans-serif: "Libre Franklin", sans-serif;
+
+// Font sizes
+$presentation-font-size-root: 24px;
+$presentation-h1-font-size: 2.2em;
+$presentation-h2-font-size: 1.8em;
+$presentation-h3-font-size: 1.4em;
+$code-block-font-size: 0.75em;
+
+// Professional Academic Color Palette
+$theme-navy: #1e3a5f;           // Deep navy for headings
+$theme-charcoal: #2c3e50;       // Charcoal for text
+$theme-blue: #3498db;           // Professional blue for accents
+$theme-light-blue: #5dade2;     // Lighter blue for highlights
+$theme-white: #ffffff;          // Pure white background
+$theme-off-white: #f8f9fa;      // Off-white for subtle backgrounds
+$theme-light-gray: #ecf0f1;     // Light gray for borders
+$theme-medium-gray: #95a5a6;    // Medium gray for secondary text
+$theme-gold: #f39c12;           // Academic gold accent
+$theme-success: #27ae60;        // Green for success/tips
+$theme-warning: #e67e22;        // Orange for warnings
+
+// Theme application
+$body-bg: $theme-off-white;
+$body-color: $theme-charcoal;
+$link-color: $theme-blue;
+$presentation-heading-color: $theme-navy;
+$code-block-bg: $theme-medium-gray;
+$code-color: $theme-charcoal;
+
+/*-- scss:rules --*/
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-weight: 600;  // Semibold for headings
+}
+.reveal {
+  font-weight: 400;  // Regular for body
+}
+
+// Base styles
+.reveal {
+  font-family: $font-family-sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+// Headings
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: $presentation-heading-font;
+  color: $presentation-heading-color;
+  font-weight: 600;
+  text-transform: none;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.reveal h1 {
+  color: $theme-navy;
+  font-weight: 700;
+  border-bottom: 3px solid $theme-gold;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.5em;
+}
+
+.reveal h2 {
+  color: $theme-navy;
+  border-bottom: 2px solid $theme-light-gray;
+  padding-bottom: 0.2em;
+}
+
+.reveal h3 {
+  color: $theme-blue;
+  font-weight: 600;
+}
+
+// Gradient text for title
+.gradient-text {
+  background: linear-gradient(135deg, $theme-navy 0%, $theme-blue 50%, $theme-gold 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+// Title slide
+.title-slide {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.03) 0%, rgba(52, 152, 219, 0.03) 100%);
+  border-radius: 8px;
+}
+
+.title-slide h1 {
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.title-slide .subtitle {
+  color: $theme-charcoal;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+// Author box
+.author-box {
+  background: $theme-off-white;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 600px;
+  border-left: 4px solid $theme-blue;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.author-box a {
+  color: $theme-blue;
+  text-decoration: none;
+  border-bottom: 1px dotted $theme-blue;
+  transition: border-bottom 0.2s;
+}
+
+.author-box a:hover {
+  border-bottom: 1px solid $theme-blue;
+}
+
+// Zone boxes (for FGC model)
+.zone-box {
+  background: $theme-white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid;
+  min-height: 200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.zone-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.zone-box h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.focus-zone {
+  border-color: #8b5cf6;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), $theme-white);
+}
+
+.focus-zone h3 {
+  color: #8b5cf6;
+}
+
+.glue-zone {
+  border-color: #06b6d4;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), $theme-white);
+}
+
+.glue-zone h3 {
+  color: #06b6d4;
+}
+
+.context-zone {
+  border-color: #f39c12;
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.05), $theme-white);
+}
+
+.context-zone h3 {
+  color: #f39c12;
+}
+
+// Text alignment
+.center {
+  text-align: center;
+}
+
+// Lists
+.reveal ul, .reveal ol {
+  margin-left: 1.5em;
+}
+
+.reveal li {
+  margin-bottom: 0.5em;
+}
+
+.reveal ul li::marker {
+  color: $theme-blue;
+  font-weight: bold;
+}
+
+// Callouts
+.callout {
+  border-radius: 8px;
+  margin: 1rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid;
+  background: $theme-off-white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.callout-tip {
+  border-left-color: $theme-success;
+  background: rgba(39, 174, 96, 0.05);
+}
+
+.callout-note {
+  border-left-color: $theme-blue;
+  background: rgba(52, 152, 219, 0.05);
+}
+
+.callout-warning {
+  border-left-color: $theme-warning;
+  background: rgba(230, 126, 34, 0.05);
+}
+
+.callout-important {
+  border-left-color: $theme-gold;
+  background: rgba(243, 156, 18, 0.05);
+}
+
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 0.3em;
+}
+
+// Contact info
+.contact-info {
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  color: $theme-charcoal;
+}
+
+.contact-info a {
+  color: $theme-blue;
+  text-decoration: none;
+  border-bottom: 1px dotted $theme-blue;
+}
+
+// Quote styling
+.quote-large {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: $theme-medium-gray;
+  margin-top: 2rem;
+  padding-left: 1.5rem;
+  border-left: 4px solid $theme-gold;
+}
+
+// Conclusion slide
+.conclusion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.03) 0%, rgba(52, 152, 219, 0.03) 100%);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+// Code blocks
+.reveal code {
+  font-family: $font-family-monospace;
+  background: $theme-navy;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  border: 1px solid $theme-light-gray;
+  color: $theme-gold;
+  font-size: 0.9em;
+}
+
+.reveal pre {
+  background: $theme-navy;
+  border: 1px solid $theme-light-gray;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin: 1rem 0;
+}
+
+.reveal pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  max-height: 500px;
+  font-size: $code-block-font-size;
+}
+
+// Tables
+.reveal table {
+  font-size: 0.7em;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.reveal table thead {
+  background: $theme-navy;
+  color: $theme-white;
+}
+
+.reveal table th {
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid $theme-light-gray;
+}
+
+.reveal table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid $theme-light-gray;
+}
+
+.reveal table tbody tr:hover {
+  background: rgba(52, 152, 219, 0.05);
+}
+
+.reveal table tbody tr:nth-child(even) {
+  background: rgba(248, 249, 250, 0.5);
+}
+
+// Columns
+.reveal .columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.reveal .column {
+  flex: 1;
+}
+
+// Links
+.reveal a {
+  color: $theme-blue;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+.reveal a:hover {
+  border-bottom: 1px solid $theme-blue;
+}
+
+// Strong/bold text
+.reveal strong {
+  color: $theme-navy;
+  font-weight: 600;
+}
+
+// Emphasis
+.reveal em {
+  color: $theme-blue;
+  font-style: italic;
+}
+
+// Blockquotes
+.reveal blockquote {
+  background: $theme-medium-gray;
+  border-left: 4px solid $theme-gold;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: $theme-charcoal;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+// Slide numbers
+.reveal .slide-number {
+  background: $theme-navy;
+  color: $theme-charcoal;
+  font-size: 0.7em;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+}
+
+// Progress bar
+.reveal .progress {
+  background: $theme-light-gray;
+  color: $theme-blue;
+}
+
+// Fragment animations
+.reveal .fragment.highlight-blue {
+  color: $theme-blue;
+}
+
+.reveal .fragment.highlight-current-blue.current-fragment {
+  color: $theme-blue;
+  font-weight: 600;
+}
+
+// Image containers for proper centering
+.centered-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.centered-large-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.centered-large-image img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+// Print styles
+@media print {
+  .reveal {
+    background: white;
+  }
+  
+  .reveal h1, .reveal h2 {
+    color: black;
+  }
+}
